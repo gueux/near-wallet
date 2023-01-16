@@ -17,7 +17,6 @@ import {
 import TwoFactorVerifyModal from '../components/accounts/two_factor/TwoFactorVerifyModal';
 import {
     IS_MAINNET,
-    PUBLIC_URL,
     SHOW_PRERELEASE_WARNING,
     DISABLE_CREATE_ACCOUNT,
 } from '../config';
@@ -112,8 +111,6 @@ const {
 const { handleFlowLimitation } = flowLimitationActions;
 
 const theme = {};
-
-const PATH_PREFIX = PUBLIC_URL;
 
 const Container = styled.div`
     min-height: 100vh;
@@ -332,7 +329,6 @@ class Routing extends Component {
             >
                 <GlobalStyle />
                 <ConnectedRouter
-                    basename={PATH_PREFIX}
                     history={this.props.history}
                 >
                     <ThemeProvider theme={theme}>

@@ -9,14 +9,14 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 import Routing from './components/Routing';
-import { RECAPTCHA_ENTERPRISE_SITE_KEY } from './config';
+import { RECAPTCHA_ENTERPRISE_SITE_KEY, PUBLIC_URL } from './config';
 import createRootReducer from './redux/createReducers';
 import createMiddleware from './redux/middleware';
 import { initSentry } from './utils/sentry';
 
 initSentry();
 
-const history = createBrowserHistory();
+const history = createBrowserHistory({basename: PUBLIC_URL});
 
 export const store = createStore(createRootReducer(history), createMiddleware(history));
 
